@@ -1,4 +1,4 @@
-# Customer Dashboard Project
+# Customer Dashboard Project (Frontend)
 
 ## Description
 This project aims to create a dashboard application where users can manage customer data. Users should be able to view all customers, add new customers through a form, sort customers based on various columns, change customer status, and perform actions like delete or edit details.
