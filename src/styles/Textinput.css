@@ -1,0 +1,21 @@
+
+  .InputText {
+    background: white;
+    display: flex;
+    align-items: center;
+    padding-inline: 10px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #000;
+    font-weight: 500;
+    outline: none;
+    width: 336px;
+    height: 48px;
+  }
+  
+  .InputText::placeholder {
+    color: #777;
+    font-weight: 500;
+  }
+ 
