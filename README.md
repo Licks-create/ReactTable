@@ -21,7 +21,7 @@ A mock Node.js server is included for API integration. Data is stored in JSON or
 ## Usage
 1. Clone the repository.
 2. Install dependencies using `npm install`.
-3. Start the server using `npm start`.
+3. Start the server using `npm run dev`.
 4. Access the application through the provided URL.
 
 ## Technologies Used
