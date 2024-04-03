@@ -52,8 +52,6 @@ const Users = () => {
     });
     document.getElementById(`page-${pageActive}`)?.classList.add("active");
   }, [pageActive]);
-
-  console.log(pageActive);
   return (
     <main className="userDetail">
       <div className="above"></div>

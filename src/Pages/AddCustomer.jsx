@@ -73,7 +73,6 @@ const AddCustomer = ({ userData }) => {
           ...param,
         }
       );
-      console.log(res);
       dispatch(setUserDetails(res.data));
       dispatch(setSlider(false));
       toast.dismiss(toastLoad);
