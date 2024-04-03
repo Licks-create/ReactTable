@@ -65,7 +65,7 @@ const Home = () => {
       >
         <div className="right">
           <div className="userHeader">
-            <h1>User Details</h1>
+            <h1>Customer Details</h1>
             <div className="img" />
           </div>
           <section className="outlet">
