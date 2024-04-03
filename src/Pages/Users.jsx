@@ -43,7 +43,7 @@ const Users = () => {
       document.getElementById(`page-${pageActive}`)?.classList.add("active");
       document.getElementById(`next`)?.classList.add("mover");
       document.getElementById(`previous`)?.classList.add("mover");
-    }, 200);
+    }, 2000);
   }, []);
 
   useEffect(() => {
