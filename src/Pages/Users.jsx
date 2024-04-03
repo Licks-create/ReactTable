@@ -25,7 +25,9 @@ const Users = () => {
     const fetchData = async () => {
       setLoader(true);
       try {
-        const res1 = await fetch("http://localhost:5000/users");
+        const res1 = await fetch(
+          "https://reacttablebackend-1.onrender.com/users"
+        );
         const data2 = await res1.json();
         setLoader(false);
         if (data2) {

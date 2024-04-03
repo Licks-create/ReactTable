@@ -25,7 +25,6 @@ const AddCustomer = ({ userData }) => {
   }
 
   async function postData(param) {
-    // if(param)
     if (
       !param?.amount ||
       !param.customerName ||
@@ -34,18 +33,25 @@ const AddCustomer = ({ userData }) => {
       !param.date
     )
       return toast.error("All Fields are required");
+    const toastLoad = toast.loading("Adding...");
     let lastItem = data.userDetails[data.userDetails.length - 1];
     const id = Number(lastItem.id) + 1;
     const transactionID = Number(lastItem.transactionID) + 1;
     try {
-      const res = await axios.post("http://localhost:5000/users", {
-        id,
-        transactionID,
-        ...param,
-      });
+      const res = await axios.post(
+        "https://reacttablebackend-1.onrender.com/users",
+        {
+          id,
+          transactionID,
+          ...param,
+        }
+      );
       dispatch(setUserDetails(res.data));
+      toast.dismiss(toastLoad);
+      dispatch(setSlider(false));
       toast.success("Customer Successfully Added");
     } catch (error) {
+      toast.dismiss(toastLoad);
       toast.error(error.message);
     }
   }
@@ -59,16 +65,21 @@ const AddCustomer = ({ userData }) => {
       !param.date
     )
       return toast.error("All Fields are required");
+    const toastLoad = toast.loading("Updating...");
     try {
-      const res = await axios.put(`http://localhost:5000/users/${param.id}`, {
-        ...param,
-      });
+      const res = await axios.put(
+        `https://reacttablebackend-1.onrender.com/users/${param.id}`,
+        {
+          ...param,
+        }
+      );
       console.log(res);
       dispatch(setUserDetails(res.data));
       dispatch(setSlider(false));
-
+      toast.dismiss(toastLoad);
       toast.success("Customer Successfully updated");
     } catch (error) {
+      toast.dismiss(toastLoad);
       toast.error(error.message);
     }
   }

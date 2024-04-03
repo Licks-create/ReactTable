@@ -7,12 +7,23 @@ import { statusColor } from "../../constants/StatusColor";
 import { setEditable, setSlider, setUserDetails } from "../app/api/userSlice";
 import { useDispatch } from "react-redux";
 import axios from "axios";
+import toast from "react-hot-toast";
 const UserRow = ({ data, searchValue, entries, pageActive }) => {
   const [searchedData, setSearchedData] = useState([]);
   const dispatch = useDispatch();
   async function deleteCustmer(data) {
-    const res = await axios.delete(`http://localhost:5000/users/${data.id}`);
-    dispatch(setUserDetails(res.data));
+    const toastLoad=toast.loading("Deleting...")
+    try {
+      const res = await axios.delete(
+        `https://reacttablebackend-1.onrender.com/users/${data.id}`
+      );
+      toast.dismiss(toastLoad)
+      dispatch(setUserDetails(res.data));
+      toast.success("User Deleted")
+    } catch (error) {
+      toast.dismiss(toastLoad)
+      toast.error(error?.message)
+    }
   }
   useEffect(() => {
     let mySearch = data.filter(
